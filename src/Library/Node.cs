@@ -7,7 +7,7 @@ namespace Library
     public class Node
     {
         private int number;
-        public Person Person { get; set; }
+        public INodeElement Person { get; set; }
 
         private List<Node> children = new List<Node>();
 
@@ -25,7 +25,7 @@ namespace Library
             }
         }
 
-        public Node(int number, Person person)
+        public Node(int number, INodeElement person)
         {
             this.number = number;
             this.Person = person;
