@@ -4,7 +4,7 @@ using System;
 
 namespace Library
 {
-    public class Node
+    public class Node : IAcceptVisits
     {
         private int number;
         public INodeElement Person { get; set; }

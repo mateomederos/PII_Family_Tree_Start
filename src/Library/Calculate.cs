@@ -4,6 +4,23 @@ using System.Collections.Generic;
 namespace Library
 {
     // class strategy OCP extension
+    public class CalculateOldestFamilyMember : IComputable
+    {
+        private Node Node { get; set; }
+
+        public CalculateOldestFamilyMember(Node node)
+        {
+            Node = node;
+        }
+
+        public int Calculate()
+        {
+            Visitor visitor = new CalculateOldestFamilyMemberVisitor();
+            this.Node.Accept(visitor);
+            return visitor.FinalResult;
+        }
+    }
+    
     public class CalculatePersonAge : IComputable
     {
         private Node Node { get; set; }
@@ -17,7 +34,7 @@ namespace Library
         {
             Visitor visitor = new CalculatePersonAgeVisitor();
             this.Node.Accept(visitor);
-            return visitor.Sum;
+            return visitor.FinalResult;
         }
     }
 

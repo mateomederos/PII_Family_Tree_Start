@@ -7,7 +7,7 @@ namespace Library
    public abstract class Visitor
     {
     
-    public int Sum { get; set; }
+    public int FinalResult { get; set; }
 
     public abstract void Visit(Node node);
 

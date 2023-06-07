@@ -40,9 +40,14 @@ namespace Program
             n4.AddChildren(n8);
 
             IComputable calculatePersonAge = new CalculatePersonAge(n1);
-            Calculator calculator = new Calculator(calculatePersonAge);
-            int PersonFamilyAge = calculator.Calculate();
+            Calculator calculator1 = new Calculator(calculatePersonAge);
+            int PersonFamilyAge = calculator1.Calculate();
             Console.WriteLine($"Ages sum of Person's family: {PersonFamilyAge}");
+
+            IComputable calculateOldestFamilyMember = new CalculateOldestFamilyMember(n1);
+            Calculator calculator2 = new Calculator(calculateOldestFamilyMember);
+            int OldestFamilyMember = calculator2.Calculate();
+            Console.WriteLine($"Oldest family member: {OldestFamilyMember}");
             
         }
     }

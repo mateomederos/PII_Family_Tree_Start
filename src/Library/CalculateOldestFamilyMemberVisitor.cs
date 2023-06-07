@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Library
 {
-    public class CalculatePersonAgeVisitor : Visitor
+    public class CalculateOldestFamilyMemberVisitor : Visitor
     {
         public override void Visit(Node node)
         {
@@ -25,7 +25,14 @@ namespace Library
 
         public override void Visit(INodeElement person)
         {
-            FinalResult += person.GetValueToSum();
+            if (FinalResult < person.GetValueToSum())
+            {
+                FinalResult = person.GetValueToSum();
+            }
+            
         }
     }
 }
+
+
+    
