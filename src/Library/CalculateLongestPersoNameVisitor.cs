@@ -3,8 +3,10 @@ using System.Collections.Generic;
 
 namespace Library
 {
-    public class CalculateOldestFamilyMemberVisitor : Visitor
+
+    public class CalculateLongestPersoNameVisitor : Visitor
     {
+        private string LongestName { get; set; } = "";
         public override void Visit(Node node)
         {
           Visit(node.Person);
@@ -25,9 +27,11 @@ namespace Library
 
         public override void Visit(INodeElement person)
         {
-            if (FinalResult < person.GetValue())
+            if (LongestName.Length < person.GetNodeElementName().Length)
             {
-                FinalResult = person.GetValue();
+                LongestName = person.GetNodeElementName();
+                FinalResult = person.GetNodeElementId();
+
             }
             
         }

@@ -5,7 +5,10 @@ namespace Library
 {
     public interface INodeElement
     {
-        int GetValueToSum();
+        int GetValue();
+        int GetNodeElementId();
+        string GetNodeElementName();
+        
 
         void Accept(Visitor visitor);
     }

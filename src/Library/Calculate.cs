@@ -4,6 +4,24 @@ using System.Collections.Generic;
 namespace Library
 {
     // class strategy OCP extension
+
+    public class CalculateLongestPersoName : IComputable
+    {
+        private Node Node { get; set; }
+
+        public CalculateLongestPersoName(Node node)
+        {
+            Node = node;
+        }
+
+        public int Calculate()
+        {
+            Visitor visitor = new CalculateLongestPersoNameVisitor();
+            this.Node.Accept(visitor);
+            return visitor.FinalResult;
+        }
+    }
+
     public class CalculateOldestFamilyMember : IComputable
     {
         private Node Node { get; set; }

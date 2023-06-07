@@ -25,7 +25,7 @@ namespace Library
 
         public override void Visit(INodeElement person)
         {
-            FinalResult += person.GetValueToSum();
+            FinalResult += person.GetValue();
         }
     }
 }

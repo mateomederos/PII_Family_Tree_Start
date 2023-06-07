@@ -8,11 +8,13 @@ namespace Library
     {
         public int Age { get; set; }
         public string Name { get; set; }
+        public int PersonId { get; set; }
 
-        public Person(int age, string name)
+        public Person(int age, string name, int personId)
         {
             this.Age = age;
             this.Name = name;
+            this.PersonId = personId;
         }
 
         public void Accept(Visitor visitor)
@@ -20,9 +22,18 @@ namespace Library
             visitor.Visit(this);
         }
 
-        public int GetValueToSum()
+        public int GetValue()
         {
             return this.Age;
+        }
+        public int GetNodeElementId()
+        {
+            return this.PersonId;
+        }
+
+        public string GetNodeElementName()
+        {
+            return this.Name;
         }
 
     }

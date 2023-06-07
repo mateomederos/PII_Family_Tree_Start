@@ -7,14 +7,14 @@ namespace Program
     {
         static void Main(string[] args)
         {
-            INodeElement person1 = new Person(25, "Juan");
-            INodeElement person2 = new Person(30, "María");
-            INodeElement person3 = new Person(40, "Pedro");
-            INodeElement person4 = new Person(18, "Ana");
-            INodeElement person5 = new Person(35, "Luis");
-            INodeElement person6 = new Person(27, "Laura");
-            INodeElement person7 = new Person(50, "Carlos");
-            INodeElement person8 = new Person(22, "Sofía");
+            INodeElement person1 = new Person(25, "Juan", 1);
+            INodeElement person2 = new Person(30, "Penélope", 2);
+            INodeElement person3 = new Person(40, "Pedro", 3);
+            INodeElement person4 = new Person(18, "Ana", 4);
+            INodeElement person5 = new Person(35, "Luis", 5);
+            INodeElement person6 = new Person(27, "Laura", 6);
+            INodeElement person7 = new Person(50, "Carlos", 7);
+            INodeElement person8 = new Person(22, "Sofía", 8);
 
 
             Node n1 = new Node(1, person1);
@@ -39,15 +39,24 @@ namespace Program
 
             n4.AddChildren(n8);
 
+            // 1 - Ages sum of Person's family.
             IComputable calculatePersonAge = new CalculatePersonAge(n1);
             Calculator calculator1 = new Calculator(calculatePersonAge);
             int PersonFamilyAge = calculator1.Calculate();
             Console.WriteLine($"Ages sum of Person's family: {PersonFamilyAge}");
 
+            // 2 - Oldest family member.
             IComputable calculateOldestFamilyMember = new CalculateOldestFamilyMember(n1);
             Calculator calculator2 = new Calculator(calculateOldestFamilyMember);
             int OldestFamilyMember = calculator2.Calculate();
             Console.WriteLine($"Oldest family member: {OldestFamilyMember}");
+
+            // 3 - Id of the person with the longest name.
+            IComputable CalculateLongestPersoName = new CalculateLongestPersoName(n1);
+            Calculator calculator3 = new Calculator(CalculateLongestPersoName);
+            int LongestPersoNameId = calculator3.Calculate();
+            Console.WriteLine($"Id of the person with the longest name: {LongestPersoNameId}");
+
             
         }
     }
