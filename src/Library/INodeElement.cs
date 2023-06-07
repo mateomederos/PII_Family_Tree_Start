@@ -5,6 +5,8 @@ namespace Library
 {
     public interface INodeElement
     {
-        
+        int GetValueToSum();
+
+        void Accept(Visitor visitor);
     }
 }

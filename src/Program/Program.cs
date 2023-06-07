@@ -39,7 +39,11 @@ namespace Program
 
             n4.AddChildren(n8);
 
-            // visitar el árbol aquí
+            IComputable calculatePersonAge = new CalculatePersonAge(n1);
+            Calculator calculator = new Calculator(calculatePersonAge);
+            int PersonFamilyAge = calculator.Calculate();
+            Console.WriteLine($"Ages sum of Person's family: {PersonFamilyAge}");
+            
         }
     }
 }

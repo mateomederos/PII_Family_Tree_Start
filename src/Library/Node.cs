@@ -9,7 +9,7 @@ namespace Library
         private int number;
         public INodeElement Person { get; set; }
 
-        private List<Node> children = new List<Node>();
+        private List<Node> Nodechildren = new List<Node>();
 
         public int Number {
             get
@@ -21,7 +21,7 @@ namespace Library
         public ReadOnlyCollection<Node> Children { 
             get
             {
-                return this.children.AsReadOnly();
+                return this.Nodechildren.AsReadOnly();
             }
         }
 
@@ -33,8 +33,12 @@ namespace Library
 
         public void AddChildren(Node n)
         {
-            this.children.Add(n);
+            this.Nodechildren.Add(n);
         }
         
+        public void Accept(Visitor visitor)
+        {
+            visitor.Visit(this);
+        }
     }
 }

@@ -4,7 +4,7 @@ using System;
 
 namespace Library
 {
-    public class Person : INodeElement
+    public class Person : INodeElement, IAcceptVisits
     {
         public int Age { get; set; }
         public string Name { get; set; }
@@ -14,5 +14,18 @@ namespace Library
             this.Age = age;
             this.Name = name;
         }
+
+        public void Accept(Visitor visitor)
+        {
+            visitor.Visit(this);
+        }
+
+        public int GetValueToSum()
+        {
+            return this.Age;
+        }
+
     }
+
+   
 }
